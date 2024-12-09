@@ -97,8 +97,16 @@ function canQueenCaptureKing(queen, king) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a + b > c && a + c > b && b + c > a) {
+    if (a === 0 || b === 0 || c === 0) {
+      return false;
+    }
+    if (a === b || b === c || a === c) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -134,8 +142,97 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let string = '';
+  for (let i = 0; i < numberStr.length - 1; i += 1) {
+    switch (numberStr[i]) {
+      case '-':
+        string += 'minus ';
+        break;
+      case '0':
+        string += 'zero ';
+        break;
+      case '1':
+        string += 'one ';
+        break;
+      case '2':
+        string += 'two ';
+        break;
+      case '3':
+        string += 'three ';
+        break;
+      case '4':
+        string += 'four ';
+        break;
+      case '5':
+        string += 'five ';
+        break;
+      case '6':
+        string += 'six ';
+        break;
+      case '7':
+        string += 'seven ';
+        break;
+      case '8':
+        string += 'eight ';
+        break;
+      case '9':
+        string += 'nine ';
+        break;
+      case '.':
+        string += 'point ';
+        break;
+      case ',':
+        string += 'point ';
+        break;
+      default:
+        break;
+    }
+  }
+  switch (numberStr[numberStr.length]) {
+    case '-':
+      string += 'minus';
+      break;
+    case '0':
+      string += 'zero';
+      break;
+    case '1':
+      string += 'one';
+      break;
+    case '2':
+      string += 'two';
+      break;
+    case '3':
+      string += 'three';
+      break;
+    case '4':
+      string += 'four';
+      break;
+    case '5':
+      string += 'five';
+      break;
+    case '6':
+      string += 'six';
+      break;
+    case '7':
+      string += 'seven';
+      break;
+    case '8':
+      string += 'eight';
+      break;
+    case '9':
+      string += 'nine';
+      break;
+    case '.':
+      string += 'point';
+      break;
+    case ',':
+      string += 'point';
+      break;
+    default:
+      break;
+  }
+  return string;
 }
 
 /**
@@ -150,8 +247,15 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let palindrome = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    palindrome += str[i];
+  }
+  if (palindrome === str) {
+    return true;
+  }
+  return false;
 }
 
 /**
