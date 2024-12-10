@@ -347,6 +347,12 @@ function getBalanceIndex(/* arr */) {
  *        ]
  */
 function getSpiralMatrix(/* size */) {
+  // const newArr = [];
+  // for (let i = 0; i < size; i += 1) {
+  //   newArr[i] = [];
+  //   for (let j = i; j = i; j += 1) {
+  //   }
+  // }
   throw new Error('Not implemented');
 }
 
@@ -365,8 +371,18 @@ function getSpiralMatrix(/* size */) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  throw new Error('Not implemented');
+function rotateMatrix(matrix) {
+  const n = matrix.length;
+  const newMatrix = new Array(n);
+  for (let i = 0; i < n; i += 1) {
+    newMatrix[i] = new Array(n);
+  }
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
+      newMatrix[j][n - 1 - i] = matrix[i][j];
+    }
+  }
+  return newMatrix;
 }
 
 /**
@@ -383,8 +399,18 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const newArr = [...arr];
+  for (let i = 1; i < newArr.length; i += 1) {
+    const key = newArr[i];
+    let j = i - 1;
+    while (j >= 0 && newArr[j] > key) {
+      newArr[j + 1] = newArr[j];
+      j -= 1;
+    }
+    newArr[j + 1] = key;
+  }
+  return newArr;
 }
 
 /**
@@ -404,8 +430,23 @@ function sortByAsc(/* arr */) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  const { length } = { length: str.length };
+  const effectiveIterations = iterations % length;
+  let current = str;
+  for (let i = 0; i < effectiveIterations; i += 1) {
+    let evenChars = '';
+    let oddChars = '';
+    for (let j = 0; j < length; j += 1) {
+      if (j % 2 === 0) {
+        evenChars += current[j];
+      } else {
+        oddChars += current[j];
+      }
+    }
+    current = evenChars + oddChars;
+  }
+  return current;
 }
 
 /**
