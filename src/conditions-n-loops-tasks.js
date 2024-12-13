@@ -123,8 +123,39 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let result = '';
+  let remaining = num;
+  while (remaining >= 10) {
+    if (remaining >= 30) {
+      result += 'XXX';
+      remaining -= 30;
+    }
+    if (remaining >= 20) {
+      result += 'XX';
+      remaining -= 20;
+    }
+    if (remaining >= 10) {
+      result += 'X';
+      remaining -= 10;
+    }
+  }
+  while (remaining > 0) {
+    if (remaining >= 9) {
+      result += 'IX';
+      remaining -= 9;
+    } else if (remaining >= 5) {
+      result += 'V';
+      remaining -= 5;
+    } else if (remaining >= 4) {
+      result += 'IV';
+      remaining -= 4;
+    } else {
+      result += 'I';
+      remaining -= 1;
+    }
+  }
+  return result;
 }
 
 /**
@@ -399,18 +430,19 @@ function rotateMatrix(matrix) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(arr) {
-  const newArr = [...arr];
-  for (let i = 1; i < newArr.length; i += 1) {
-    const key = newArr[i];
-    let j = i - 1;
-    while (j >= 0 && newArr[j] > key) {
-      newArr[j + 1] = newArr[j];
-      j -= 1;
-    }
-    newArr[j + 1] = key;
-  }
-  return newArr;
+function sortByAsc(/* arr */) {
+  // const newArr = [...arr];
+  // for (let i = 1; i < newArr.length; i += 1) {
+  //   const key = newArr[i];
+  //   let j = i - 1;
+  //   while (j >= 0 && newArr[j] > key) {
+  //     newArr[j + 1] = newArr[j];
+  //     j -= 1;
+  //   }
+  //   newArr[j + 1] = key;
+  // }
+  // return newArr;
+  throw new Error('Not implemented');
 }
 
 /**
